@@ -28,6 +28,7 @@ export class Player {
 
     getAbilityValue(ability: string) {
         if (ability == "strength") {
+            console.log("Strenght");
             let race_mod = this.race?.strength_mod ?? 0;
             return race_mod + this.abilities[ability]?.value;
         }

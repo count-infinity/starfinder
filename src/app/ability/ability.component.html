@@ -13,7 +13,7 @@
             </td>
             <td>
                 <button (click)="addPoint('strength')">+</button>
-                {{(player$ | async)?.abilities?.["strength"]?.value }}
+                {{(player$ | async)?.getAbilityValue("strength") }}
                 <button (click)="subtractPoint('strength')">-</button>
             </td>            
         </tr>

@@ -3,6 +3,7 @@ import { Class, Race, Theme } from '../models/race';
 import { RaceService } from '../services/race-service.service';
 import { ClassService } from '../services/class.service';
 import { ThemeService } from '../services/theme.service';
+import { PlayerService } from '../services/player.service';
 
 @Component({
   selector: 'app-race-select',
@@ -19,7 +20,7 @@ export class RaceSelectComponent {
   classes: Class[] | undefined;
   themes: Theme[] | undefined;
 
-  constructor(private raceService: RaceService, private classService: ClassService, private themeService: ThemeService) {
+  constructor(private raceService: RaceService, private classService: ClassService, private themeService: ThemeService, private playerService: PlayerService) {
     this.races=this.raceService.getRaces();
     this.themes=this.themeService.getThemes();
     this.classes=this.classService.getClasses();
@@ -33,6 +34,7 @@ export class RaceSelectComponent {
     else {
       this.selectedRace = race;
     }
+    this.playerService.selectRace(this.selectedRace);
   }
   onSelectTheme(theme: Theme) {
     if (this.selectedTheme?.name === theme.name)
