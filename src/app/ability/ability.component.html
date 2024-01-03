@@ -1,0 +1,64 @@
+<table>
+    <thead>
+        <td>Ability</td>
+        <td>Base</td>
+        <td>Race</td>
+        <td>Theme</td>
+        <td>Class</td>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                Strength
+            </td>
+            <td>
+                {{abilities["strength"]}}
+            </td>
+            <td>
+                <button (click)="addPoint('strength')">+</button>
+                <button (click)="subtractPoint('strength')">-</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Dexterity
+            </td>
+            <td>
+                {{abilities["dexterity"]}}
+            </td>            
+        </tr>
+        <tr>
+            <td>
+                Constitution
+            </td>
+            <td>
+                {{abilities["constitution"]}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Intelligence
+            </td>
+            <td>
+                {{abilities["intelligence"]}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Wisdom
+            </td>
+            <td>
+                {{abilities["wisdom"]}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Charisma
+            </td>
+            <td>
+                {{abilities["charisma"]}}
+            </td>
+        </tr>
+        
+    </tbody>
+</table>

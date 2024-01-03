@@ -1,0 +1,19 @@
+<ul>
+    <li *ngFor="let race of races"
+    [class.selected]="race.name === selectedRace?.name"
+    (click)="onSelectRace(race)"
+    >{{ race.name }}</li>
+</ul>
+<ul>
+    <li *ngFor="let theme of themes"
+    [class.selected]="theme.name === selectedTheme?.name"
+    (click)="onSelectTheme(theme)"    
+    >{{ theme.name }}</li>
+</ul>
+<ul>
+    <li *ngFor="let class of classes"
+    [class.selected]="class.name === selectedClass?.name"
+    (click)="onSelectClass(class)"  
+    
+    >{{ class.name }}</li>
+</ul>
