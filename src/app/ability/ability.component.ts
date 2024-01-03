@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { PlayerService } from '../services/player.service';
+import { Observable } from 'rxjs';
+import { Player } from '../models/player';
 
 @Component({
   selector: 'app-ability',
@@ -6,32 +9,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./ability.component.css']
 })
 export class AbilityComponent {
-  abilities: { [key:string]: number}= {
-  strength: 10,
-  dexterity: 10,
-  constitution: 10,
-  wisdom: 10,
-  intelligence: 10,
-  charisma: 10
-  };
-
-  discretionary = 10
   
+  player$: Observable<Player>;
+  
+  constructor(private playerService: PlayerService) {
+    this.player$ = playerService.player$;
+  }
 
   addPoint(ability: string): void {
-    let current: number = this.abilities[ability];
-    if (current >= 18) return;
-    
-    this.abilities[ability] += 1;
-    this.discretionary -= 1;
-
+    this.playerService.addPoint(ability);
   }
   subtractPoint(ability: string): void {
-    let current: number = this.abilities[ability];
-    if (current <= 10) return;
-
-    this.abilities[ability] -= 1;
-    this.discretionary += 1;    
+    this.playerService.subtractPoint(ability);    
   }
 
 }

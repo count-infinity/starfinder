@@ -4,6 +4,7 @@ import { Race } from "./race";
 export class Player {
     abilities: { [key: string]: Ability };
     race: Race | undefined;
+    discretionary: number = 10;
 
     constructor() {
         this.abilities = {
@@ -22,6 +23,7 @@ export class Player {
         wisdom_mod: 0,
         charisma_mod: 0
         };
+        
     }
 
     getAbilityValue(ability: string) {

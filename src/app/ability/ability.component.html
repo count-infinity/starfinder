@@ -7,24 +7,25 @@
         <td>Class</td>
     </thead>
     <tbody>
-        <tr>
-            <td>
-                Strength
-            </td>
-            <td>
-                {{abilities["strength"]}}
+        <tr>            
+            <td>                
+                Strength                
             </td>
             <td>
                 <button (click)="addPoint('strength')">+</button>
+                {{(player$ | async)?.abilities?.["strength"]?.value }}
                 <button (click)="subtractPoint('strength')">-</button>
-            </td>
+            </td>            
         </tr>
         <tr>
             <td>
                 Dexterity
             </td>
             <td>
-                {{abilities["dexterity"]}}
+                <button (click)="addPoint('dexterity')">+</button>
+                {{(player$ | async)?.abilities?.["dexterity"]?.value }}
+                <button (click)="subtractPoint('dexterity')">-</button>
+
             </td>            
         </tr>
         <tr>
@@ -32,7 +33,9 @@
                 Constitution
             </td>
             <td>
-                {{abilities["constitution"]}}
+                <button (click)="addPoint('constitution')">+</button>
+                {{(player$ | async)?.abilities?.["constitution"]?.value }}
+                <button (click)="subtractPoint('constitution')">-</button>
             </td>
         </tr>
         <tr>
@@ -40,7 +43,9 @@
                 Intelligence
             </td>
             <td>
-                {{abilities["intelligence"]}}
+                <button (click)="addPoint('intelligence')">+</button>
+                {{(player$ | async)?.abilities?.["intelligence"]?.value }}
+                <button (click)="subtractPoint('intelligence')">-</button>
             </td>
         </tr>
         <tr>
@@ -48,15 +53,27 @@
                 Wisdom
             </td>
             <td>
-                {{abilities["wisdom"]}}
+                <button (click)="addPoint('wisdom')">+</button>
+                {{(player$ | async)?.abilities?.["wisdom"]?.value }}
+                <button (click)="subtractPoint('wisdom')">-</button>
             </td>
         </tr>
         <tr>
             <td>
                 Charisma
             </td>
+            <td> 
+                <button (click)="addPoint('charisma')">+</button>               
+                {{(player$ | async)?.abilities?.["charisma"]?.value }}
+                <button (click)="subtractPoint('charisma')">-</button>
+            </td>
+        </tr>
+        <tr>
             <td>
-                {{abilities["charisma"]}}
+                Discretionary
+            </td>
+            <td colspan="2" align="center">
+                {{(player$ | async)?.discretionary }}                
             </td>
         </tr>
         
