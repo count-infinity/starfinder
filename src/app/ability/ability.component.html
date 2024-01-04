@@ -5,6 +5,7 @@
         <td>Race</td>
         <td>Theme</td>
         <td>Class</td>
+        <td>Total</td>
     </thead>
     <tbody>
         <tr>            
@@ -13,9 +14,19 @@
             </td>
             <td>
                 <button (click)="addPoint('strength')">+</button>
-                {{(player$ | async)?.getAbilityValue("strength") }}
+                {{(player$ | async)?.abilities?.['strength']?.value }}
                 <button (click)="subtractPoint('strength')">-</button>
-            </td>            
+            </td>
+            <td>
+                {{(player$ | async)?.race?.strength_mod }}
+            </td>
+            <td>
+
+            </td>
+            <td></td>
+            <td>
+                {{(player$ | async)?.getAbilityValue("strength") }}
+            </td>    
         </tr>
         <tr>
             <td>
@@ -23,10 +34,19 @@
             </td>
             <td>
                 <button (click)="addPoint('dexterity')">+</button>
-                {{(player$ | async)?.abilities?.["dexterity"]?.value }}
+                {{(player$ | async)?.abilities?.['dexterity']?.value }}
                 <button (click)="subtractPoint('dexterity')">-</button>
+            </td>
+            <td>
+                {{(player$ | async)?.race?.dexterity_mod }}
+            </td>
+            <td>
 
-            </td>            
+            </td>
+            <td></td>
+            <td>
+                {{(player$ | async)?.getAbilityValue("dexterity") }}
+            </td>                
         </tr>
         <tr>
             <td>
@@ -34,9 +54,19 @@
             </td>
             <td>
                 <button (click)="addPoint('constitution')">+</button>
-                {{(player$ | async)?.abilities?.["constitution"]?.value }}
+                {{(player$ | async)?.abilities?.['constitution']?.value }}
                 <button (click)="subtractPoint('constitution')">-</button>
             </td>
+            <td>
+                {{(player$ | async)?.race?.constitution_mod }}
+            </td>
+            <td>
+
+            </td>
+            <td></td>
+            <td>
+                {{(player$ | async)?.getAbilityValue("constitution") }}
+            </td>    
         </tr>
         <tr>
             <td>
@@ -44,9 +74,19 @@
             </td>
             <td>
                 <button (click)="addPoint('intelligence')">+</button>
-                {{(player$ | async)?.abilities?.["intelligence"]?.value }}
+                {{(player$ | async)?.abilities?.['intelligence']?.value }}
                 <button (click)="subtractPoint('intelligence')">-</button>
             </td>
+            <td>
+                {{(player$ | async)?.race?.intelligence_mod }}
+            </td>
+            <td>
+
+            </td>
+            <td></td>
+            <td>
+                {{(player$ | async)?.getAbilityValue("intelligence") }}
+            </td>    
         </tr>
         <tr>
             <td>
@@ -54,9 +94,19 @@
             </td>
             <td>
                 <button (click)="addPoint('wisdom')">+</button>
-                {{(player$ | async)?.abilities?.["wisdom"]?.value }}
+                {{(player$ | async)?.abilities?.['wisdom']?.value }}
                 <button (click)="subtractPoint('wisdom')">-</button>
             </td>
+            <td>
+                {{(player$ | async)?.race?.wisdom_mod }}
+            </td>
+            <td>
+
+            </td>
+            <td></td>
+            <td>
+                {{(player$ | async)?.getAbilityValue("wisdom") }}
+            </td>    
         </tr>
         <tr>
             <td>
@@ -64,9 +114,19 @@
             </td>
             <td> 
                 <button (click)="addPoint('charisma')">+</button>               
-                {{(player$ | async)?.abilities?.["charisma"]?.value }}
+                {{(player$ | async)?.abilities?.['charisma']?.value }}
                 <button (click)="subtractPoint('charisma')">-</button>
             </td>
+            <td>
+                {{(player$ | async)?.race?.charisma_mod }}
+            </td>
+            <td>
+
+            </td>
+            <td></td>
+            <td>
+                {{(player$ | async)?.getAbilityValue("charisma") }}
+            </td>    
         </tr>
         <tr>
             <td>
