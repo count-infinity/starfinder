@@ -1,5 +1,7 @@
 import { Ability } from "./ability";
+import { Mod } from "./mod";
 import { Race } from "./race";
+
 
 export class Player {
     abilities: { [key: string]: Ability };
@@ -15,49 +17,34 @@ export class Player {
             "charisma": { name:"Charisma", value: 10},
             "constitution": { name:"Constitution", value: 10}
         }
+
         this.race = { name:"Human", description: "A human",
-        strength_mod: 0,
-        dexterity_mod: 0,
-        constitution_mod: 0,
-        intelligence_mod: 0,
-        wisdom_mod: 0,
-        charisma_mod: 0
+            mods:[
+                new Mod("strength_mod","strength","race",0),
+                new Mod("dexterity_mod","dexterity","race",0),
+                new Mod("constitution_mod","constitution","race",0),
+                new Mod("intelligence_mod","intelligence","race",0),
+                new Mod("wisdom_mod","wisdom","race",0),
+                new Mod("charisma_mod","charisma","race",0)
+            ]
         };
         
     }
 
+    getRaceMod(ability: string)
+    {
+        let raceMod = this.race?.mods
+        ?.filter((mod) => mod.for_attribute == ability)
+        ?.reduce((sum, current) => sum + current.value, 0);
+
+        return raceMod ?? 0;
+        
+    }
+
     getAbilityValue(ability: string) {
-        if (ability == "strength") {
-            console.log("Strength");
-            let race_mod = this.race?.strength_mod ?? 0;
-            return race_mod + this.abilities[ability]?.value;
-        }
-        else if (ability == "dexterity") {
-            console.log("dexterity");
-            let race_mod = this.race?.dexterity_mod ?? 0;
-            return race_mod + this.abilities[ability]?.value;
-        }
-        else if (ability == "constitution") {
-            console.log("Strength");
-            let race_mod = this.race?.constitution_mod ?? 0;
-            return race_mod + this.abilities[ability]?.value;
-        }
-        else if (ability == "intelligence") {
-            console.log("intelligence");
-            let race_mod = this.race?.intelligence_mod ?? 0;
-            return race_mod + this.abilities[ability]?.value;
-        }
-        else if (ability == "wisdom") {
-            console.log("wisdom");
-            let race_mod = this.race?.wisdom_mod ?? 0;
-            return race_mod + this.abilities[ability]?.value;
-        }
-        else if (ability == "charisma") {
-            console.log("charisma");
-            let race_mod = this.race?.charisma_mod ?? 0;
-            return race_mod + this.abilities[ability]?.value;
-        }
-        return 0;
+
+        let total = this.abilities[ability].value + this.getRaceMod(ability);
+        return total;
     }
 
 

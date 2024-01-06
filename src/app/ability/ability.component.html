@@ -18,7 +18,7 @@
                 <button (click)="subtractPoint('strength')">-</button>
             </td>
             <td>
-                {{(player$ | async)?.race?.strength_mod }}
+                {{(player$ | async)?.getRaceMod("strength") }}
             </td>
             <td>
 
@@ -38,7 +38,7 @@
                 <button (click)="subtractPoint('dexterity')">-</button>
             </td>
             <td>
-                {{(player$ | async)?.race?.dexterity_mod }}
+                {{(player$ | async)?.getRaceMod("dexterity") }}
             </td>
             <td>
 
@@ -58,7 +58,7 @@
                 <button (click)="subtractPoint('constitution')">-</button>
             </td>
             <td>
-                {{(player$ | async)?.race?.constitution_mod }}
+                {{(player$ | async)?.getRaceMod("constitution") }}
             </td>
             <td>
 
@@ -78,7 +78,7 @@
                 <button (click)="subtractPoint('intelligence')">-</button>
             </td>
             <td>
-                {{(player$ | async)?.race?.intelligence_mod }}
+                {{(player$ | async)?.getRaceMod("intelligence") }}
             </td>
             <td>
 
@@ -98,7 +98,7 @@
                 <button (click)="subtractPoint('wisdom')">-</button>
             </td>
             <td>
-                {{(player$ | async)?.race?.wisdom_mod }}
+                {{(player$ | async)?.getRaceMod("wisdom") }}
             </td>
             <td>
 
@@ -118,7 +118,7 @@
                 <button (click)="subtractPoint('charisma')">-</button>
             </td>
             <td>
-                {{(player$ | async)?.race?.charisma_mod }}
+                {{(player$ | async)?.getRaceMod("charisma") }}
             </td>
             <td>
 

@@ -24,7 +24,7 @@ export class PlayerService {
 
     if (player.discretionary <= 0) return;
 
-    let current: number = player.getAbilityValue(ability);
+    let current: number = player.abilities[ability].value;
     if (current >= 18) return;
     
     player.abilities[ability].value += 1;
@@ -36,7 +36,7 @@ export class PlayerService {
   subtractPoint(ability: string): void {
     let player = this.playerSubject.getValue();
 
-    let current: number = player.getAbilityValue(ability);
+    let current: number = player.abilities[ability].value;
     if (current <= 10) return;
 
     player.abilities[ability].value -= 1;
@@ -45,21 +45,13 @@ export class PlayerService {
     this.playerSubject.next(player);
   }
   selectRace(race: Race | undefined): void 
-  {
+  {    
     let player = this.playerSubject.getValue();
-    player.race=race;
-    
-    this.checkAttributeValue("strength");
-    this.checkAttributeValue("dexterity");
-    this.checkAttributeValue("constitution");
-    this.checkAttributeValue("intelligence");
-    this.checkAttributeValue("wisdom");
-    this.checkAttributeValue("charisma");
-      
+    player.race=race;   
     
     this.playerSubject.next(player);
     
-  }
+  } 
 
   checkAttributeValue(attributeName:string) {
     let player = this.playerSubject.getValue();
@@ -68,7 +60,6 @@ export class PlayerService {
       player.discretionary += (total_ability-18);
       player.abilities[attributeName].value -= (total_ability-18);
     }
-
   }
 
   

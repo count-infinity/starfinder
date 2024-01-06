@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Race } from '../models/race';
+import { Mod } from '../models/mod';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,12 +30,16 @@ export class RaceService {
 
   private createRace(name: string, abilityMods: number[]): Race {
     return { name: name, description: "Default",
-    strength_mod: abilityMods[0],
-    dexterity_mod: abilityMods[1],
-    constitution_mod: abilityMods[2],
-    intelligence_mod: abilityMods[3],
-    wisdom_mod: abilityMods[4],
-    charisma_mod: abilityMods[5],
+    //name: string,for_attribute: T, from: V, value: number
+
+    mods:[
+      new Mod("strength_mod","strength","race",abilityMods[0]),
+      new Mod("dexterity_mod","dexterity","race",abilityMods[1]),
+      new Mod("constitution_mod","constitution","race",abilityMods[2]),
+      new Mod("intelligence_mod","intelligence","race",abilityMods[3]),
+      new Mod("wisdom_mod","wisdom","race",abilityMods[4]),
+      new Mod("charisma_mod","charisma","race",abilityMods[5])
+     ]   
    };
   }
 }
